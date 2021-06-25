@@ -13,7 +13,6 @@ class Game:
         print('\n', '='*13, ' W E L C O M E   T O   P H R A S E H U N T E R ! ', '='*13, '\n')
 
     def create_phrases(self):
-
         all_phrases = [
             'Frankly my dear, I don\'t give a damn.', 
             'make him an offer he can\'t refuse.', 
@@ -50,6 +49,7 @@ class Game:
             'Life uh... finds a way.',
             'I\'m king of the world!']
 
+        # Each variable removes and stores a random phrase from the list
         phrase_one = Phrase(all_phrases.pop(random.randint(0, len(all_phrases)-1)))
         phrase_two = Phrase(all_phrases.pop(random.randint(0, len(all_phrases)-1)))
         phrase_three = Phrase(all_phrases.pop(random.randint(0, len(all_phrases)-1)))
@@ -60,12 +60,14 @@ class Game:
 
         return phrases
     
+    # Pick one random phrase from the five available choices in self.phrases
     def get_random_phrase(self):
         rand = random.randint(0, len(self.phrases)-1)
         return self.phrases[rand]
 
+    # User input method
     def get_guess(self):
-        
+        # While loop to allow for errors
         while True:
             try:
                 user_guess = input('Take a guess, any letter will do!\n>')
@@ -80,9 +82,11 @@ class Game:
             except TypeError as err:
                 print(f'Error: {err}')
 
+    # Start Game
     def start(self):
         self.welcome()
         
+        # Loop until either player loses their five lives, or finishes the phrase.
         while self.missed < 5 and not self.active_phrase.check_complete(self.guesses):
             lives_remaining = 5 - self.missed
             print(f'You have {lives_remaining} out of 5 lives remaning.')
@@ -106,6 +110,7 @@ class Game:
         
         self.play_again()
 
+
     def play_again(self):
         print('Would you like to play again?')
         answer = None
@@ -115,6 +120,7 @@ class Game:
                 if answer.lower() != 'y' and answer.lower() != 'n':
                     raise ValueError('Error')
                 if answer == 'y':
+                    # RESET
                     self.phrases = self.create_phrases()
                     self.active_phrase = self.get_random_phrase()
                     self.missed = 0
