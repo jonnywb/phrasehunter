@@ -100,7 +100,8 @@ class Game:
         
         self.game_over()
             
-    
+    # Game over checks whether the game was ended due to win or loss
+    # and displays relevent message.
     def game_over(self):
         if self.missed == 5:
             print('='*13, 'GAME OVER!', '='*13, '\n')
@@ -110,24 +111,31 @@ class Game:
         
         self.play_again()
 
-
+    # When called, asks user if they would like to play again.
+    # Y = Resets code and calls start.game() again.
+    # N = Quits the game and displays a message
+    # Else Error.
     def play_again(self):
+
         print('Would you like to play again?')
-        answer = None
         while True:
             try:
                 answer = input('Please enter \'y\' or \'n\'. \n>')
+
                 if answer.lower() != 'y' and answer.lower() != 'n':
                     raise ValueError('Error')
-                if answer == 'y':
+
+                elif answer == 'y':
                     # RESET
                     self.phrases = self.create_phrases()
                     self.active_phrase = self.get_random_phrase()
                     self.missed = 0
                     self.guesses = [' ', ',', '.', '!', '?', '\'']
                     self.start()
-                else:
+
+                elif answer == 'n':
                     print('\nThanks for playing!\n')
                     return False
+
             except ValueError:
                 print('Please try again.')
