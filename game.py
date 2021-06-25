@@ -70,7 +70,7 @@ class Game:
         # While loop to allow for errors
         while True:
             try:
-                user_guess = input('Take a guess, any letter will do!\n>')
+                user_guess = input('Take a guess, any letter will do!\n>').lower()
                 accepted_values =  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
                 if user_guess.lower() in accepted_values:
@@ -89,7 +89,7 @@ class Game:
         # Loop until either player loses their five lives, or finishes the phrase.
         while self.missed < 5 and not self.active_phrase.check_complete(self.guesses):
             lives_remaining = 5 - self.missed
-            print(f'You have {lives_remaining} out of 5 lives remaning.')
+            print(f'\nYou have {lives_remaining} out of 5 lives remaning.\n')
             self.active_phrase.display(self.guesses)
 
             user_guess = self.get_guess()
