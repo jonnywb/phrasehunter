@@ -1,5 +1,5 @@
 # P H R A S E H U N T E R
-###Team Treehouse Python Techdegree Unit 3 Project
+### Team Treehouse Python Techdegree Unit 3 Project
 
 Create a word guessing game: "Phrase Hunter." You’ll use Python and OOP (Object-Oriented Programming) approaches to select a phrase at random, hidden from the player. A player tries to guess the phrase by inputting individual characters.
 
