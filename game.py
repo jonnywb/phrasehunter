@@ -39,7 +39,7 @@ class Game:
             'I\'ll be back.',
             'If you build it, he will come.',
             'I feel the need, the need for speed!',
-            'These aren\'t the droids you\'re looking for.'
+            'These aren\'t the droids you\'re looking for.',
             'Choice is an illusion created between those with power and those without.',
             'Carpe diem. Seize the day!',
             'Houston, we have a problem.',
