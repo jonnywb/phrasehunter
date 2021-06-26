@@ -40,7 +40,7 @@ class Game:
             'If you build it, he will come.',
             'I feel the need, the need for speed!',
             'These aren\'t the droids you\'re looking for.',
-            'Choice is an illusion created between those with power and those without.',
+            'Choice is an illusion, created between those with power, and those without.',
             'Carpe diem. Seize the day!',
             'Houston, we have a problem.',
             'Nobody puts baby in a corner!',
@@ -104,9 +104,9 @@ class Game:
     # and displays relevent message.
     def game_over(self):
         if self.missed == 5:
-            print('='*13, 'GAME OVER!', '='*13, '\n')
+            print('='*13, 'G A M E   O V E R !', '='*13, '\n')
         elif self.active_phrase.check_complete(self.guesses):
-            print('='*13, 'YAHOOOO! You Got it!', '='*13, '\n') 
+            print('='*13, 'C O N G R A T U L A T I O N S ! You Got it!', '='*13, '\n') 
             self.active_phrase.display(self.guesses)
         
         self.play_again()
@@ -123,7 +123,7 @@ class Game:
                 answer = input('Please enter \'y\' or \'n\'. \n>')
 
                 if answer.lower() != 'y' and answer.lower() != 'n':
-                    raise ValueError('Error')
+                    raise ValueError('Please enter \'y\' or \'n\'.')
 
                 elif answer == 'y':
                     # RESET
@@ -135,7 +135,7 @@ class Game:
 
                 elif answer == 'n':
                     print('\nThanks for playing!\n')
-                    return False
+                    break
 
-            except ValueError:
-                print('Please try again.')
+            except ValueError as err:
+                print(f'Please try again. {err}')
