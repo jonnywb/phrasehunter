@@ -70,7 +70,7 @@ class Game:
         # While loop to allow for errors
         while True:
             try:
-                user_guess = input('Take a guess, any letter will do!\n>').lower()
+                user_guess = input('Guess a letter, and try to fill in the blanks, one by one.\n>').lower()
                 accepted_values =  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
                 if user_guess.lower() in accepted_values:

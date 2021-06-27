@@ -16,7 +16,7 @@ class Phrase:
     # Check if letter guessed was correct
     def check_guess(self, guess):
         if guess in self.phrase:
-            print('\nYou got it!\n')
+            print('\nCorrect!\n')
             return True
         else:
             print(f'\nOuch, \'{guess}\' is incorrect!\n')
