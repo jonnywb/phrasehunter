@@ -133,7 +133,7 @@ class Game:
                     self.guesses = [' ', ',', '.', '!', '?', '\'']
                     self.start()
 
-                elif answer == 'n':
+                else:
                     print('\nThanks for playing!\n')
                     break
 
