@@ -8,6 +8,7 @@ class Phrase:
         for letter in self.phrase:
             if letter in guesses:
                 print(f'{letter}', end=' ')
+
             else: 
                 print(f'_', end=' ')
         
@@ -18,6 +19,7 @@ class Phrase:
         if guess in self.phrase:
             print('\nCorrect!\n')
             return True
+
         else:
             print(f'\nOuch, \'{guess}\' is incorrect!\n')
             return False
@@ -27,4 +29,5 @@ class Phrase:
         for letter in self.phrase:
             if letter not in guesses:
                 return False
+                
         return True

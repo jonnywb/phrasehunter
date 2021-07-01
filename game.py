@@ -9,8 +9,13 @@ class Game:
         self.active_phrase = self.get_random_phrase()
         self.guesses = [' ', ',', '.', '!', '?', '\'']
 
+
     def welcome(self):
-        print('\n', '='*13, ' W E L C O M E   T O   P H R A S E H U N T E R ! ', '='*13, '\n')
+        print('\n',
+         '='*13,
+         ' W E L C O M E   T O   P H R A S E H U N T E R ! ',
+          '='*13, '\n')
+
 
     def create_phrases(self):
         all_phrases = [
@@ -60,22 +65,30 @@ class Game:
 
         return phrases
     
+
     # Pick one random phrase from the five available choices in self.phrases
     def get_random_phrase(self):
         rand = random.randint(0, len(self.phrases)-1)
         return self.phrases[rand]
+
 
     # User input method
     def get_guess(self):
         # While loop to allow for errors
         while True:
             try:
-                user_guess = input('Guess a letter, and try to fill in the blanks, one by one.\n>').lower()
-                accepted_values =  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+                user_guess = input(
+                    'Guess a letter, and try to fill in the blanks, one by one.\n>'
+                    ).lower()
+
+                accepted_values =  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+                 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+                  'w', 'x', 'y', 'z']
 
                 if user_guess.lower() in accepted_values:
                     print(user_guess)
                     return user_guess
+
                 else:
                     raise TypeError('Please enter a single letter between a-z.')
 
@@ -118,14 +131,16 @@ class Game:
     def play_again(self):
 
         print('Would you like to play again?')
-        while True:
+        answer = None
+        
+        while answer not in ['y', 'n']:
             try:
                 answer = input('Please enter \'y\' or \'n\'. \n>')
 
-                if answer.lower() != 'y' and answer.lower() != 'n':
-                    raise ValueError('Please enter \'y\' or \'n\'.')
+                if answer.lower() == 'n':
+                    print('\nThanks for playing!\n')
 
-                elif answer == 'y':
+                elif answer.lower() == 'y':
                     # RESET
                     self.phrases = self.create_phrases()
                     self.active_phrase = self.get_random_phrase()
@@ -134,8 +149,7 @@ class Game:
                     self.start()
 
                 else:
-                    print('\nThanks for playing!\n')
-                    break
+                    raise ValueError('Enter \'y\' or \'n\'.')
 
             except ValueError as err:
                 print(f'Please try again. {err}')
