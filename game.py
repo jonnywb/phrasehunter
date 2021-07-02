@@ -139,6 +139,7 @@ class Game:
 
                 if answer.lower() == 'n':
                     print('\nThanks for playing!\n')
+                    break
 
                 elif answer.lower() == 'y':
                     # RESET
